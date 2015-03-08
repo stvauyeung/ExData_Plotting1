@@ -1,7 +1,7 @@
 library(data.table)
 
 hpc = fread("household_power_consumption.txt")
-hpc$Date = as.Date(hpc$Date)
+hpc$Date = as.Date(hpc$Date, format = "%d/%m/%Y")
 
 subsetDates = subset(hpc, Date == as.Date("2007-02-01") | Date == as.Date("2007-02-02"))
 subsetDates$Global_active_power = as.numeric(subsetDates$Global_active_power)
